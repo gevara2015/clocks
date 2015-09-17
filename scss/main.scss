@@ -1,0 +1,96 @@
+//variables
+$clock-size: 200px;
+$gutter-minutes: 10px;
+$gutter-hours: 15px;
+
+body{
+    position: relative;
+    background: rgba(12, 10, 23, 0.84);
+    color: rgba(249, 255, 253, 0.91);
+    font-size: 16px;
+}
+
+canvas{
+    position: absolute;
+    @include size(100%);
+}
+
+.clock-layout {
+    position: relative;
+    @include size(100%);
+    margin: 0 auto;
+    &-inner{
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        margin-left: -($clock-size/2);
+        overflow: hidden;
+        @include size($clock-size);
+        canvas{ z-index: 500;}
+    }
+    span{
+        display: block;
+        position: absolute;
+        font-size: 4.2rem;
+        transform: rotate(0deg);
+//        top: 50%;
+//        left: 50%;
+    }
+    .seconds{
+        @include size($clock-size);
+//        background: rgba(14, 41, 131, 0.15);
+        @include border-radius(100%);
+        overflow: hidden;
+        border: 1px solid hsla(0, 1%, 14%, 0.6);
+        &:before{
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include size(100%);
+            background: rgba(14, 55, 163, 0.68);
+            -webkit-clip-path: polygon(48% 3%, 52% 3%, 50% 8%);
+        }
+    }
+    .minutes{
+        @include size($clock-size - 2*$gutter-minutes);
+        z-index: 2;
+        @include border-radius(100%);
+        overflow: hidden;
+        margin: $gutter-minutes 0 0 $gutter-minutes;
+        &:before{
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include size(100%);
+            background: rgba(16, 36, 87, 0.81);
+            -webkit-clip-path: polygon(47% 59%, 50% 5%, 53% 58%);
+        }
+    }
+
+    .hours{
+        @include size($clock-size - 2*$gutter-hours);
+        z-index: 2;
+        @include border-radius(100%);
+        overflow: hidden;
+        margin: $gutter-hours 0 0 $gutter-hours;
+        &:before{
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include size(100%);
+            background: rgba(11, 62, 11, 0.58);
+            -webkit-clip-path: polygon(45% 60%, 50% 12%, 55% 63%);
+        }
+    }
+}
+
+.show-json{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+}

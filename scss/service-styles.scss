@@ -1,0 +1,56 @@
+* {
+    -webkit-font-smoothing  : antialiased;
+    -moz-osx-font-smoothing : grayscale;
+    @include box-sizing(border-box);
+    margin                  : 0;
+    padding                 : 0;
+    @include backface-visibility(hidden);
+    @include translate3d(0, 0, 0);
+    &:before, &:after {
+        @include box-sizing(border-box);
+    }
+}
+
+html, body { height : 100%; }
+
+body {
+    position : relative;
+    font     : 500 18px 'Garamond', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin  : 0;
+}
+
+ul {
+    padding : 0;
+    margin  : 0;
+    li { list-style : none; }
+}
+
+a {
+    text-decoration : none;
+    @include transition(all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86));
+    &:hover, &:focus {
+        text-decoration : none;
+        outline         : none;
+    }
+}
+
+address {
+    margin      : 0;
+    line-height : 1em;
+}
+
+.wrap { overflow : hidden; }
+
+.m0px { margin : 1px !important; }
+
+.p0px { padding : 0 !important; }
+
+mark {
+    background : none;
+    color      : #FF0000;
+}
+
+em {     font-family : $i; }

@@ -1,0 +1,13 @@
+input, textarea {
+    padding       : 2px;
+    border        : 1px solid $primary-color;
+    border-radius : 3px;
+    @include transition(all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86));
+    @include placeholder {
+        color : #2D2D2D;
+    }
+    &:focus {
+        border  : 1px solid $primary-color-hover;
+        outline : none;
+    }
+}
